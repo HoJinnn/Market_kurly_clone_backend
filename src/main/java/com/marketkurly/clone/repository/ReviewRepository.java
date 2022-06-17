@@ -17,8 +17,11 @@ import java.util.List;
 public class ReviewRepository {
     private EntityManager em;
 
-    public ReviewResponseDto saveReview(ReviewRequestDto reviewRequestDto){
+    //리뷰 저장//
+    public Review saveReview(ReviewRequestDto reviewRequestDto/*,String writer*/){
         Review review = Review.createReview(reviewRequestDto);
+        em.persist(review);
+        return review;
     }
 
 }
