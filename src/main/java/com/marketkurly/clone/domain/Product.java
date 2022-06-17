@@ -1,13 +1,9 @@
 package com.marketkurly.clone.domain;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor
 @Getter
@@ -16,6 +12,7 @@ public class Product extends TimeStamp{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private Long id;
 
     private String name;
@@ -43,6 +40,4 @@ public class Product extends TimeStamp{
     private String thumbnailUrl;
 
     private String contentImageUrl;
-    
-
 }
