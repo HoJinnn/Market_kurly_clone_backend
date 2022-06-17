@@ -1,4 +1,8 @@
 package com.marketkurly.clone.domain;
 
-public class Product {
+import javax.persistence.Entity;
+
+@Entity
+public class Product extends TimeStamp{
+
 }
