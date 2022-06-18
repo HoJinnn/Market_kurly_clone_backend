@@ -1,5 +1,6 @@
 package com.marketkurly.clone.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,4 +29,11 @@ public class Product extends TimeStamp{
     private String info;
     private String thumbnail;
     private String contentImageUrl;
+
+    @Builder
+    public Product(String name, String subtitle, String thumbnail) {
+        this.name = name;
+        this.subtitle = subtitle;
+        this.thumbnail = thumbnail;
+    }
 }
