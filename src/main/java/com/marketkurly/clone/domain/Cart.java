@@ -1,5 +1,6 @@
 package com.marketkurly.clone.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,5 +27,13 @@ public class Cart extends TimeStamp{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orders_id")
     private Orders orders;
+
+    @Builder
+    public Cart(int quantity, int totalPrice, Product product) {
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.product = product;
+    }
+
 
 }
