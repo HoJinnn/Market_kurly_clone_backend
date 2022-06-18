@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class ReviewRepository {
-    private EntityManager em;
+    private final EntityManager em;
 
     //리뷰 저장//
     public Review saveReview(ReviewRequestDto reviewRequestDto/*,String writer*/){
@@ -24,4 +24,24 @@ public class ReviewRepository {
         return review;
     }
 
+    //리뷰 수정//
+    public Review changeReview(Long reviewId, ReviewRequestDto reviewRequestDto){
+        Review review = em.find(Review.class, reviewId);
+        review.setCommentTitle(reviewRequestDto.getCommentTitle());
+        review.setCommentDetail(reviewRequestDto.getCommentDetail());
+        review.setImageFile(reviewRequestDto.getImageFile());
+
+        return review;
+    }
+
+    //리뷰 삭제//
+    public void deleteReview(Long reviewId) {
+        em.remove(em.find(Review.class, reviewId));
+    }
+
+    //리뷰 조회//
+    public List<Review>  findAll() {
+        List<Review> resultList = em.createQuery(" select r from Review r", Review.class).getResultList();
+        return resultList;
+    }
 }

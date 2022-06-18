@@ -22,7 +22,7 @@ public class ReviewResponseDto {
 
     public static ReviewResponseDto createResponseDto(Review review){
         ReviewResponseDto reviewResponseDto = new ReviewResponseDto();
-        reviewResponseDto.setId(reviewResponseDto.getId());
+        reviewResponseDto.setId(review.getId());
         reviewResponseDto.setCommentTitle(review.getCommentTitle());
         reviewResponseDto.setCommentDetail(review.getCommentDetail());
         reviewResponseDto.setImageFile(review.getImageFile());
