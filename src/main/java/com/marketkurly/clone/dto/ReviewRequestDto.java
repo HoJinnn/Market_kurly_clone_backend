@@ -5,9 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class ReviewRequestDto {
     private String commentTitle;
     private String commentDetail;
     private String imageFile;
+
+    public ReviewRequestDto(String commentTitle, String commentDetail) {
+        this.commentTitle = commentTitle;
+        this.commentDetail = commentDetail;
+    }
 }
