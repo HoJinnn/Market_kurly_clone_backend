@@ -21,7 +21,7 @@ public class UserController {
         return userService.signupUser(singUpData);
     }
     //아이디 중복체크
-    @PostMapping("/user/idCheck/{username}")
+    @GetMapping("/user/idCheck/{username}")
     public boolean signupUseridCheck(@PathVariable String username){
         return userService.signupUsernameCheck(username);
     }

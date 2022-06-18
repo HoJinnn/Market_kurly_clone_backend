@@ -47,10 +47,7 @@ public class UserService {
     //아이디 중복체크
     public boolean signupUsernameCheck(String username){
         Optional<User> found = userRepository.findByUsername(username);
-         if(!found.isPresent()){
-             return true;
-         }
-         return false;
+        return (!found.isPresent());
     }
     //로그인
     public JwtResponseDto loginUser(UserLoginRequestDto loginData){
