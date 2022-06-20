@@ -21,6 +21,8 @@ public class Orders extends TimeStamp{
     @OneToMany(mappedBy = "orders")
     private List<Cart> carts;
 
+
+
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "user_id")
 //    private User user;
