@@ -34,6 +34,4 @@ public class Cart extends TimeStamp{
         this.totalPrice = totalPrice;
         this.product = product;
     }
-
-
 }

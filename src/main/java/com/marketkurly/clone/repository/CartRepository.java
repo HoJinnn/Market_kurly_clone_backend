@@ -11,4 +11,6 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 //
 //    @Query("select new com.marketkurly.clone.dto.CartResponseDto(c.quantity, c.totalPrice) from Cart c join c.user u")
 //    List<CartResponseDto> findCart();
+
+    void deleteByProduct_Id(Long productId);
 }
