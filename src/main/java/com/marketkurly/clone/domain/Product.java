@@ -3,10 +3,13 @@ package com.marketkurly.clone.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Product extends TimeStamp{
@@ -29,7 +32,16 @@ public class Product extends TimeStamp{
     private String info;
     private String thumbnail;
     private String contentImageUrl;
+    
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Review> reviews;
 
+
+    //==연관관계 메서드==//
+    public void setReviews(Review review){
+        reviews.add(review);
+        review.setProduct(this);
+    }
 
     @Builder
     public Product(String name, int price, String category, String subtitle, String salesUnit, String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl) {

@@ -19,8 +19,7 @@ public class ReviewRepository {
     private final EntityManager em;
     private final AwsS3Service awsS3Service;
     //리뷰 저장//
-    public Review saveReview(ReviewRequestDto reviewRequestDto/*,String writer*/){
-        Review review = Review.createReview(reviewRequestDto);
+    public Review saveReview(Review review/*,String writer*/){
         em.persist(review);
         return review;
     }

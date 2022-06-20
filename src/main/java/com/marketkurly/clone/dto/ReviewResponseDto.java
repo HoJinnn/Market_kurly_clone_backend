@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ReviewResponseDto {
+    private Long productId;
     private Long id;
     private String commentTitle;
     private String commentDetail;
@@ -23,8 +22,10 @@ public class ReviewResponseDto {
     /*createTime 설정 필요*/
     /*--------------------*/
 
+
     public static ReviewResponseDto createResponseDto(Review review){
         ReviewResponseDto reviewResponseDto = new ReviewResponseDto();
+        reviewResponseDto.setProductId(review.getProduct().getId());
         reviewResponseDto.setId(review.getId());
         reviewResponseDto.setCommentTitle(review.getCommentTitle());
         reviewResponseDto.setCommentDetail(review.getCommentDetail());
@@ -36,6 +37,7 @@ public class ReviewResponseDto {
 
     public static ReviewResponseDto changeResponseDto(Review review){
         ReviewResponseDto reviewResponseDto = new ReviewResponseDto();
+        reviewResponseDto.setProductId(review.getProduct().getId());
         reviewResponseDto.setId(review.getId());
         reviewResponseDto.setCommentTitle(review.getCommentTitle());
         reviewResponseDto.setCommentDetail(review.getCommentDetail());
