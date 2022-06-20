@@ -32,7 +32,7 @@ public class Product extends TimeStamp{
     private String info;
     private String thumbnail;
     private String contentImageUrl;
-    
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
