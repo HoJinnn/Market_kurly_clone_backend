@@ -63,5 +63,10 @@ public class UserService {
         return new JwtResponseDto(token);
     }
 
+    public String GetUserInfo(UserDetailsImpl userDetails){
+        String name = userDetails.getName();
+        return name;
+    }
+
 
 }

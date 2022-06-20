@@ -4,8 +4,10 @@ package com.marketkurly.clone.controller;
 import com.marketkurly.clone.dto.JwtResponseDto;
 import com.marketkurly.clone.dto.UserLoginRequestDto;
 import com.marketkurly.clone.dto.UserRequestDto;
+import com.marketkurly.clone.security.UserDetailsImpl;
 import com.marketkurly.clone.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -31,4 +33,8 @@ public class UserController {
         return userService.loginUser(loginData);
     }
 
+    @GetMapping("/user/info")
+    public String GetUserInfo(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return userService.GetUserInfo(userDetails);
+    }
 }
