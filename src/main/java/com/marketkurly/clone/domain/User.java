@@ -23,8 +23,6 @@ public class User {
     private String name;
     @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
-    private String address;
 
     public User(UserRequestDto userRequestDto) {
 
@@ -32,7 +30,6 @@ public class User {
         this.password = userRequestDto.getPassword();
         this.name = userRequestDto.getName();
         this.email = userRequestDto.getEmail();
-        this.address = userRequestDto.getAddress();
     }
         public void encryptPassword(PasswordEncoder passwordEncoder) {
             password = passwordEncoder.encode(password);
