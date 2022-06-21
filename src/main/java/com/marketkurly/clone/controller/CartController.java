@@ -1,11 +1,12 @@
 package com.marketkurly.clone.controller;
 
 import com.marketkurly.clone.dto.CartAddRequestDto;
-import com.marketkurly.clone.dto.CartRequestDto;
 import com.marketkurly.clone.dto.CartResponseDto;
 import com.marketkurly.clone.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -15,7 +16,7 @@ public class CartController {
 
     //장바구니 목록 호출 API
     @GetMapping("/api/cart")
-    public CartResponseDto getCart() {
+    public List<CartResponseDto> getCart() {
         return cartService.getCart();
     }
 

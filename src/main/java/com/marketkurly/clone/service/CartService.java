@@ -3,8 +3,6 @@ package com.marketkurly.clone.service;
 import com.marketkurly.clone.domain.Cart;
 import com.marketkurly.clone.domain.Product;
 import com.marketkurly.clone.dto.CartAddRequestDto;
-import com.marketkurly.clone.dto.CartListDto;
-import com.marketkurly.clone.dto.CartRequestDto;
 import com.marketkurly.clone.dto.CartResponseDto;
 import com.marketkurly.clone.repository.CartRepository;
 import com.marketkurly.clone.repository.ProductRepository;
@@ -24,11 +22,12 @@ public class CartService {
     private final ProductRepository productRepository;
 
     //장바구니 목록 호출
-    public CartResponseDto getCart() {
+    public List<CartResponseDto> getCart() {
         List<Cart> carts = cartRepository.findAll();
-        List<CartListDto> cartListDto = carts.stream()
+
+        return carts.stream()
                 .map(c ->
-                    CartListDto.builder()
+                    CartResponseDto.builder()
                             .productName(c.getProduct().getName())
                             .productImage(c.getProduct().getThumbnail())
                             .price(c.getProduct().getPrice())
@@ -36,8 +35,6 @@ public class CartService {
                             .quantity(c.getQuantity())
                             .build())
                 .collect(Collectors.toList());
-
-        return new CartResponseDto(cartListDto);
     }
 
     //장바구니 담기
