@@ -44,7 +44,8 @@ public class Product extends TimeStamp{
     }
 
     @Builder
-    public Product(String name, int price, String category, String subtitle, String salesUnit, String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl) {
+    public Product(String name, int price, String category, String subtitle, String salesUnit,
+                   String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl) {
         this.name = name;
         this.price = price;
         this.category = category;

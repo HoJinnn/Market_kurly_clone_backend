@@ -26,7 +26,8 @@ public class ReviewController {
 
     //리뷰 저장//
     @PostMapping("/api/products/{productId}/review")
-    public ReviewResponseDto saveReview(@PathVariable("productId") Long productId, @RequestPart(value = "file") List<MultipartFile> multipartFile, @RequestPart(value = "key") ReviewRequestDto reviewRequestDto/*, @Authenticationprincipal UserDetailImpl userdetails*/){
+    public ReviewResponseDto saveReview(@PathVariable("productId") Long productId, @RequestPart(value = "file") List<MultipartFile> multipartFile, @RequestPart(value = "key") ReviewRequestDto
+            reviewRequestDto/*, @Authenticationprincipal UserDetailImpl userdetails*/){
         List<String> strings = awsS3Service.uploadFile(multipartFile);
         reviewRequestDto.setImageFile(strings.get(0));
         return reviewService.saveReview(productId, reviewRequestDto/*,userdetails.getUser()*/);
