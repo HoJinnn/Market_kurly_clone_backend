@@ -1,4 +1,5 @@
 spring:
+<<<<<<< HEAD
   datasource:
     url: jdbc:h2:mem:clone
     username: sa
