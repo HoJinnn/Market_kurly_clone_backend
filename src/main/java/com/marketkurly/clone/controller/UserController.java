@@ -32,7 +32,7 @@ public class UserController {
     public JwtResponseDto loginUser(@RequestBody UserLoginRequestDto loginData){
         return userService.loginUser(loginData);
     }
-
+    //유저정보조회(이름가져오기)
     @GetMapping("/user/info")
     public String GetUserInfo(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         return userService.GetUserInfo(userDetails);

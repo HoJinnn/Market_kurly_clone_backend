@@ -62,7 +62,7 @@ public class UserService {
         String token = jwtTokenProvider.generateToken(principal);
         return new JwtResponseDto(token);
     }
-
+    //유저정보조회(이름가져오기)
     public String GetUserInfo(UserDetailsImpl userDetails){
         String name = userDetails.getName();
         return name;
