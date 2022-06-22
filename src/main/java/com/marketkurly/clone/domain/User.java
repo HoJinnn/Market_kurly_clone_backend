@@ -10,9 +10,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
+@Table(name = "users")
 public class User {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "user_id")
     private Long id;

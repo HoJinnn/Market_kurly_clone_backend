@@ -27,10 +27,12 @@ public class NoticeResponseDto {
 
     private String imageUrl;
 
+    private String contentDetail;
+
 
     private List<ReviewResponseDto> reviews;
 
-    public NoticeResponseDto(Long productId, String productName, String subtitle, String salesUnit, String weight, String shippingCategory, String orgin, String packagingType, String alergy, String info, String thumbnailUrl, int productPrice, String imageUrl) {
+    public NoticeResponseDto(Long productId, String productName, String subtitle, String salesUnit, String weight, String shippingCategory, String orgin, String packagingType, String alergy, String info, String thumbnailUrl, int productPrice, String imageUrl, String contentDetail) {
         this.productId = productId;
         this.productName = productName;
         this.subtitle = subtitle;
@@ -44,5 +46,6 @@ public class NoticeResponseDto {
         this.thumbnailUrl = thumbnailUrl;
         this.productPrice = productPrice;
         this.imageUrl = imageUrl;
+        this.contentDetail = contentDetail;
     }
 }
