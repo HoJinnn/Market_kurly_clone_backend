@@ -19,6 +19,9 @@ public class Product extends TimeStamp{
     @Column(name = "product_id")
     private Long id;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Review> reviews;
+
     private String name;
     private int price;
     private String category;
@@ -33,8 +36,7 @@ public class Product extends TimeStamp{
     private String thumbnail;
     private String contentImageUrl;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<Review> reviews;
+    private String contentDetail;
 
 
     //==연관관계 메서드==//
@@ -45,7 +47,7 @@ public class Product extends TimeStamp{
 
     @Builder
     public Product(String name, int price, String category, String subtitle, String salesUnit,
-                   String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl) {
+                   String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl, String contentDetail) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -59,5 +61,6 @@ public class Product extends TimeStamp{
         this.info = info;
         this.thumbnail = thumbnail;
         this.contentImageUrl = contentImageUrl;
+        this.contentDetail = contentDetail;
     }
 }

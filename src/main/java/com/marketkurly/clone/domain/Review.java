@@ -27,13 +27,13 @@ public class Review extends TimeStamp{
     private Product product;
 
     //생성 메서드//
-    public static Review createReview(Product product, ReviewRequestDto reviewRequestDto/*, String writer*/) {
+    public static Review createReview(Product product, ReviewRequestDto reviewRequestDto, String writer) {
         Review review = new Review();
         review.setCommentTitle(reviewRequestDto.getCommentTitle());
         review.setCommentDetail(reviewRequestDto.getCommentDetail());
         review.setImageFile(reviewRequestDto.getImageFile());
         review.setProduct(product);
-        /*review.setWriter(writer);*/
+        review.setWriter(writer);
         return review;
     }
 

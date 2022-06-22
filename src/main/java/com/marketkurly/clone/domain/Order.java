@@ -4,23 +4,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Orders extends TimeStamp{
+@Table(name = "orders")
+public class Order extends TimeStamp{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "orders_id")
+    @Column(name = "order_id")
     private Long id;
 
     private int payment;
 
-    @OneToMany(mappedBy = "orders")
-    private List<Cart> carts;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<Cart> carts = new ArrayList<>();
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
 
 
 //    @ManyToOne(fetch = FetchType.LAZY)

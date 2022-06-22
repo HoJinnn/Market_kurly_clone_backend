@@ -22,7 +22,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AwsS3Service {
 
-    @Value("${cloud.aws.s3.bucket}")
+    @Value("${cloud.aws.s3.bucket}/reviewImage")
     private String bucket;
 
     private final AmazonS3 amazonS3;
@@ -40,7 +40,6 @@ public class AwsS3Service {
             try(InputStream inputStream = file.getInputStream()) {
                 amazonS3.putObject(new PutObjectRequest(bucket, fileName, inputStream, objectMetadata)
                         .withCannedAcl(CannedAccessControlList.PublicRead));
-                System.out.println("여기들어옴");
             } catch(IOException e) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다.");
             }

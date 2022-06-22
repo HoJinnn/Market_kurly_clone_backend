@@ -1,6 +1,5 @@
 package com.marketkurly.clone.controller;
 
-
 import com.marketkurly.clone.dto.NoticeCreateDto;
 import com.marketkurly.clone.dto.NoticeResponseDto;
 import com.marketkurly.clone.service.NoticeService;
@@ -20,8 +19,8 @@ public class NoticeController {
     }
 
     //상세 페이지 조회/
-    @GetMapping("/api/products/{productId}")
-    public NoticeResponseDto findNotice(@PathVariable("productId") Long productId){
-        return noticeService.findNotice(productId,1,3);
+    @GetMapping("/api/products/{productId}/index/{index}")
+    public NoticeResponseDto findNotice(@PathVariable("productId") Long productId, @PathVariable("index") int index){
+        return noticeService.findNotice(productId,(index-1)*7,((index-1)*7)+6);
     }
 }

@@ -18,7 +18,7 @@ public class NoticeRepository {
     public NoticeResponseDto findNotice(Long productId) {
         return em.createQuery(
                         " select new com.marketkurly.clone.dto.NoticeResponseDto(" +
-                                "p.id,p.name,p.subtitle,p.salesUnit,p.weight,p.shippingCategory,p.orgin,p.packagingType,p.allergic,p.info,p.thumbnail,p.price,p.contentImageUrl)" +
+                                "p.id,p.name,p.subtitle,p.salesUnit,p.weight,p.shippingCategory,p.orgin,p.packagingType,p.allergic,p.info,p.thumbnail,p.price,p.contentImageUrl,p.contentDetail)" +
                                 " from Product p" +
                                 " where p.id = :productId", NoticeResponseDto.class)
                 .setParameter("productId", productId)
@@ -51,6 +51,7 @@ public class NoticeRepository {
         product.setInfo(noticeCreateDto.getInfo());
         product.setThumbnail(noticeCreateDto.getThumbnail());
         product.setContentImageUrl(noticeCreateDto.getContentImageUrl());
+        product.setContentDetail(noticeCreateDto.getContentDetail());
         em.persist(product);
     }
 }

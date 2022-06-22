@@ -18,7 +18,9 @@ public class NoticeCreateDto {
     private String thumbnail;
     private String contentImageUrl;
 
-    public NoticeCreateDto(String name, int price, String category, String subtitle, String salesUnit, String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl) {
+    private String contentDetail;
+
+    public NoticeCreateDto(String name, int price, String category, String subtitle, String salesUnit, String weight, String shippingCategory, String orgin, String packagingType, String allergic, String info, String thumbnail, String contentImageUrl, String contentDetail) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -32,5 +34,6 @@ public class NoticeCreateDto {
         this.info = info;
         this.thumbnail = thumbnail;
         this.contentImageUrl = contentImageUrl;
+        this.contentDetail = contentDetail;
     }
 }
