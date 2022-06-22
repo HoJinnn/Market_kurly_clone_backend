@@ -27,8 +27,4 @@ public class Order extends TimeStamp{
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
-//    private User user;
 }
