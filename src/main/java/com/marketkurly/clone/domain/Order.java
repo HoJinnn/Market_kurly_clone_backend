@@ -2,6 +2,7 @@ package com.marketkurly.clone.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "orders")
+@Setter
 public class Order extends TimeStamp{
 
     @Id

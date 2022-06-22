@@ -1,5 +1,7 @@
 package com.marketkurly.clone.controller;
 
+import com.marketkurly.clone.domain.Order;
+import com.marketkurly.clone.dto.OrderRequestDto;
 import com.marketkurly.clone.repository.OrderRepository;
 import com.marketkurly.clone.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +18,13 @@ public class OrderController {
 
     @PostMapping("/api/order")
     public String registOrder(@RequestBody OrderRequestDto orderRequestDto, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        Order order = new Order();
 
+        order.setCarts(orderRequestDto.getProduct());
+        order.setPayment(orderRequestDto.getPayment());
+        order.setDelivery(null);
+
+        orderRepository.save(order);
 
         return "등록 성공!";
     }
