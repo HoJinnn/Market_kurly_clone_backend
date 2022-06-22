@@ -17,11 +17,7 @@ public class ReviewResponseDto {
     private String commentDetail;
     private String imageFile;
     private LocalDateTime createdAt;
-    /*private String name;*/
-
-    /*createTime 설정 필요*/
-    /*--------------------*/
-
+    private String name;
 
     public static ReviewResponseDto createResponseDto(Review review){
         ReviewResponseDto reviewResponseDto = new ReviewResponseDto();
@@ -31,7 +27,7 @@ public class ReviewResponseDto {
         reviewResponseDto.setCommentDetail(review.getCommentDetail());
         reviewResponseDto.setImageFile(review.getImageFile());
         reviewResponseDto.setCreatedAt(review.getCreatedAt());
-        /*reviewResponseDto.setName(review.getWriter());*/
+        reviewResponseDto.setName(review.getWriter());
         return reviewResponseDto;
     }
 
@@ -43,7 +39,7 @@ public class ReviewResponseDto {
         reviewResponseDto.setCommentDetail(review.getCommentDetail());
         reviewResponseDto.setImageFile(review.getImageFile());
         reviewResponseDto.setCreatedAt(review.getModifiedAt());
-        /*reviewResponseDto.setName(review.getWriter());*/
+        reviewResponseDto.setName(review.getWriter());
         return reviewResponseDto;
     }
 }

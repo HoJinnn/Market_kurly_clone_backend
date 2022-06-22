@@ -1,5 +1,6 @@
 package com.marketkurly.clone.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,7 @@ public class Delivery extends TimeStamp{
 
     private String address;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Orders orders;
+    @JsonIgnore
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
+    private Order order;
 }

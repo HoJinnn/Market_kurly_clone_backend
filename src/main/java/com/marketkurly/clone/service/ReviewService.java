@@ -29,9 +29,9 @@ public class ReviewService {
 
     //리뷰 저장//
     @Transactional
-    public ReviewResponseDto saveReview(Long productId, ReviewRequestDto reviewRequestDto /*,String writer*/){
+    public ReviewResponseDto saveReview(Long productId, ReviewRequestDto reviewRequestDto ,String writer){
         Product product = productRepository.findById(productId).orElseThrow(() -> new NullPointerException("해당 아이디가 존재하지 않습니다."));
-        Review review = Review.createReview(product,reviewRequestDto);
+        Review review = Review.createReview(product,reviewRequestDto,writer);
         Review returnReview = reviewRepository.saveReview(review);
         return ReviewResponseDto.createResponseDto(returnReview);
     }

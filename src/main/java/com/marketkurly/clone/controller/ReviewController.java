@@ -3,9 +3,12 @@ package com.marketkurly.clone.controller;
 import com.marketkurly.clone.domain.Review;
 import com.marketkurly.clone.dto.ReviewRequestDto;
 import com.marketkurly.clone.dto.ReviewResponseDto;
+import com.marketkurly.clone.security.UserDetailsImpl;
 import com.marketkurly.clone.service.AwsS3Service;
 import com.marketkurly.clone.service.ReviewService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,10 +30,10 @@ public class ReviewController {
     //리뷰 저장//
     @PostMapping("/api/products/{productId}/review")
     public ReviewResponseDto saveReview(@PathVariable("productId") Long productId, @RequestPart(value = "file") List<MultipartFile> multipartFile, @RequestPart(value = "key") ReviewRequestDto
-            reviewRequestDto/*, @Authenticationprincipal UserDetailImpl userdetails*/){
+            reviewRequestDto, @AuthenticationPrincipal UserDetailsImpl userdetails){
         List<String> strings = awsS3Service.uploadFile(multipartFile);
         reviewRequestDto.setImageFile(strings.get(0));
-        return reviewService.saveReview(productId, reviewRequestDto/*,userdetails.getUser()*/);
+        return reviewService.saveReview(productId, reviewRequestDto,userdetails.getUsername());
     }
 
     //리뷰 수정//
