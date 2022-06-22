@@ -4,6 +4,7 @@ import com.marketkurly.clone.domain.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface CartRepository extends JpaRepository<Cart, Long> {
@@ -15,4 +16,6 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 //    List<CartResponseDto> findCart();
 
     List<Cart> findAllByUser_Id(Long userId);
+
+    Cart findByProduct_IdAndUser_Id(Long productId, Long userId);
 }

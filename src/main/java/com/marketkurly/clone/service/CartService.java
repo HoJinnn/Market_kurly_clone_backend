@@ -46,19 +46,31 @@ public class CartService {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품입니다."));
 
-        Cart cart = Cart.builder()
-                .product(product)
-                .user(user)
-                .quantity(requestDto.getQuantity())
-                .totalPrice(requestDto.getTotalPrice())
-                .build();
+        Cart getCart = cartRepository.findByProduct_IdAndUser_Id(productId, user.getId());
 
-        cartRepository.save(cart);
+        if (getCart != null) {
+            updateCart(getCart, requestDto.getQuantity(), requestDto.getTotalPrice());
+        }else {
+            Cart cart = Cart.builder()
+                    .product(product)
+                    .user(user)
+                    .quantity(requestDto.getQuantity())
+                    .totalPrice(requestDto.getTotalPrice())
+                    .build();
+
+            cartRepository.save(cart);
+        }
     }
 
     //장바구니 품목 삭제
     @Transactional
     public void deleteCart(Long cartId) {
         cartRepository.deleteById(cartId);
+    }
+
+    //장바구니 수량 변경
+    public void updateCart(Cart cart, int quantity, int totalPrice) {
+        cart.setQuantity(cart.getQuantity() + quantity);
+        cart.setTotalPrice(cart.getTotalPrice() + totalPrice);
     }
 }

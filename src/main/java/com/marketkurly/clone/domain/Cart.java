@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Cart extends TimeStamp{
@@ -20,6 +22,7 @@ public class Cart extends TimeStamp{
     private int quantity;
 
     private int totalPrice;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
@@ -33,7 +36,8 @@ public class Cart extends TimeStamp{
     private Product product;
 
     @Builder
-    public Cart(int quantity, int totalPrice, Product product, User user) {
+    public Cart(Long id, int quantity, int totalPrice, Product product, User user) {
+        this.id = id;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
         this.product = product;
