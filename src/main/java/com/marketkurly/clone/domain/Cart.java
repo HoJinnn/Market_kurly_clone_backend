@@ -28,10 +28,15 @@ public class Cart extends TimeStamp{
     @JoinColumn(name = "orders_id")
     private Orders orders;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Builder
-    public Cart(int quantity, int totalPrice, Product product) {
+    public Cart(int quantity, int totalPrice, Product product, User user) {
         this.quantity = quantity;
         this.totalPrice = totalPrice;
         this.product = product;
+        this.user = user;
     }
 }

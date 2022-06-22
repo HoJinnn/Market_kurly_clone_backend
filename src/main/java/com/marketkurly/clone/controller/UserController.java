@@ -19,7 +19,7 @@ public class UserController {
 
     //회원가입
     @PostMapping("/user/signup")
-    public String  signupUser(@RequestBody UserRequestDto singUpData){
+    public String signupUser(@RequestBody UserRequestDto singUpData){
         return userService.signupUser(singUpData);
     }
     //아이디 중복체크

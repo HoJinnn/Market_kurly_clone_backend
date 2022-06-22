@@ -64,8 +64,7 @@ public class UserService {
     }
     //유저정보조회(이름가져오기)
     public String GetUserInfo(UserDetailsImpl userDetails){
-        String name = userDetails.getName();
-        return name;
+        return userDetails.getName();
     }
 
 
