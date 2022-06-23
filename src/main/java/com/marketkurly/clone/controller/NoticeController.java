@@ -31,11 +31,11 @@ public class NoticeController {
     @GetMapping("/api/products/upsideimg")
     public UpsideImageDto findUpsideImage(){
         UpsideImageDto upsideImageDto = new UpsideImageDto();
-        upsideImageDto.settingImage(amazonS3.getThumbnailPath("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/contentImage/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%801.png"));
-        upsideImageDto.settingImage(amazonS3.getThumbnailPath("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/contentImage/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%802.png"));
-        upsideImageDto.settingImage(amazonS3.getThumbnailPath("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/contentImage/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%803.png"));
-        upsideImageDto.settingImage(amazonS3.getThumbnailPath("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/contentImage/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%804.png"));
-        upsideImageDto.settingImage(amazonS3.getThumbnailPath("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/contentImage/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%805.png"));
+        upsideImageDto.settingImage("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%801.PNG");
+        upsideImageDto.settingImage("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%802.PNG");
+        upsideImageDto.settingImage("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%803.PNG");
+        upsideImageDto.settingImage("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%804.PNG");
+        upsideImageDto.settingImage("https://marketkurly-imageupload.s3.ap-northeast-2.amazonaws.com/%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%805.PNG");
         return upsideImageDto;
     }
 
